@@ -1,0 +1,77 @@
+#include "AlphaBot.h"
+
+int LSensorPin = 7;
+int RSensorPin = 8;
+
+int LSensor;              //Left Infrared Proximity Sensor signal value
+int RSensor;              //Right Infrared Proximity Sensor signal value
+
+AlphaBot Car1 = AlphaBot();
+
+void ProximityConfig()        //A pinek módjának beállítása
+{
+  pinMode(RSensorPin, INPUT);   //Define the input pin of Right Infrared Proximity Sensor
+  pinMode(LSensorPin, INPUT);   //Define the input pin of Left Infrared Proximity Sensor
+}
+
+void setup()
+{
+  ProximityConfig();
+  Car1.SetSpeed(150);
+  Car1.Brake();
+}
+
+void loop()
+
+robotCar1.Right(650);
+  Car1.Brake();
+
+  robotCar1.Forward(500);
+  Car1.Brake();
+
+  robotCar1.Left(650);
+ Car1.Brake();
+
+  robotCar1.Forward(500);
+  Car1.Brake();
+
+   robotCar1.Left(650);
+  Car1.Brake();
+
+  robotCar1.Forward(700);
+  Car1.Brake();
+
+   robotCar1.Right(650);
+  Car1.Brake();
+
+  delay(1000);
+  
+{
+  
+    RSensor = digitalRead(RSensorPin);            //LOW means signal, HIGH means no signal 
+    LSensor = digitalRead(LSensorPin);            //LOW means signal, HIGH means no signal 
+    
+      Car1.Forward();
+    
+    if (LSensor == LOW && RSensor == LOW)
+   {
+      Car1.Backward();
+      delay(50);
+      Car1.LeftCircle();
+      delay(350);
+      Car1.Forward();
+      delay(1000);
+      Car1.RightCircle();
+      delay(300);
+      Car1.Forward();
+      delay(1100);
+      Car1.RightCircle();
+      delay(300);
+      Car1.Forward();
+      delay(1000);
+      Car1.LeftCircle();
+      delay(300);
+
+      Car1.Brake();
+    }
+  }
